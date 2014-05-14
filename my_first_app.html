@@ -1,0 +1,71 @@
+<head>
+  <title>my_first_app</title>
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+       <div class="navbar-inner">
+         <div class="container">
+           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="brand" href="#">RSVP</a>
+           <div class="nav-collapse collapse">
+             <ul class="nav">
+               <li class="active"><a href="#">Home</a></li>
+               <li><a href="#about">About</a></li>
+               <li><a href="#contact">Contact</a></li>
+             </ul>
+             <ul class="nav pull-right">
+                <li> {{loginButtons}} </li>
+              </ul>
+             
+           </div><!--/.nav-collapse -->
+         </div>
+       </div>
+     </div>
+
+  <div class="container">
+      {{> RSVP}}
+  </div>
+</body>
+
+<template name="RSVP">
+  <h1>Hello there!</h1>
+  {{#if userId}}
+    {{greeting}}
+    <form>
+    	<p>name <input type="text" id="name" /> </p>
+    	<input type="button" id="RSVPyes" value="Yes" />
+    	<input type="button" id="RSVPno" value="No" />
+    </form>
+  {{/if}}
+  <h3>People going: </h3>
+  <!-- {{results}} -->
+  {{#each allRSVP}}
+    {{#if rule1 name}}
+      <p>
+        {{name}}
+      </p>
+    {{/if}}
+
+    {{#if rule2 name}}
+      <p>
+        {{email}}
+      </p>
+    {{/if}}
+
+    {{#if rule3 email}}
+      <p>
+        {{name}}
+        {{email}}
+      </p>
+    {{/if}}
+    <!-- <p>
+      {{name}}
+      {{email}}
+    </p> -->
+  {{/each}}
+</template>
