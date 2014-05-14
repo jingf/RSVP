@@ -25,34 +25,32 @@ if (Meteor.isClient) {
     return Meteor.userId();
   };
 
-  Template.RSVP.rule1 = function(name) {
-    if (name === "jing" || name === "Jing") {
-      return "join Jing!";
-      //console.log("join Jing!");
-    };
-  }
+  // Template.RSVP.rule1 = function(name) {
+  //   if (name === "jing" || name === "Jing") {
+  //     return "join Jing!";
+  //     //console.log("join Jing!");
+  //   };
+  // }
 
-  Template.RSVP.rule2 = function(name) {
-    if (name === "a" ) {
-      return "join everybody!";
-    };
-  }
+  // Template.RSVP.rule2 = function(name) {
+  //   if (name === "a" ) {
+  //     return "join everybody!";
+  //   };
+  // }
 
-  Template.RSVP.rule3 = function(email) {
-    if (email === getCurrentEmail()) {
-      return "self!";
-    };
-  }
+  // Template.RSVP.rule3 = function(email) {
+  //   if (email === getCurrentEmail()) {
+  //     return "self!";
+  //   };
+  // }
 
   Template.RSVP.events({
     'click #RSVPyes': function (evt, templ) {
-      console.log("clicked yes");
       // template data, if any, is available in 'this'
       var name = templ.find("#name").value;
       var email = getCurrentEmail();
-      console.log(name, email);
+      
       //if (!(RSVP.find({email: email}).fetch())) {
-        console.log("In if statement");
         RSVP.insert({
           name: name, 
           email: email
