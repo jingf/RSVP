@@ -46,14 +46,18 @@ if (Meteor.isClient) {
 
   Template.RSVP.events({
     'click #RSVPyes': function (evt, templ) {
+      console.log("clicked yes");
       // template data, if any, is available in 'this'
       var name = templ.find("#name").value;
       var email = getCurrentEmail();
-      if (!RSVP.find(email)) {
-        RSVP.insert({name: name, 
-                      email: email
-                    });
-      };
+      console.log(name, email);
+      //if (!(RSVP.find({email: email}).fetch())) {
+        console.log("In if statement");
+        RSVP.insert({
+          name: name, 
+          email: email
+        });
+      //};
     }
   });
 }

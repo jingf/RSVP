@@ -33,19 +33,22 @@
 </body>
 
 <template name="RSVP">
-  <h1>Hello there!</h1>
+  
   {{#if userId}}
+    <h1>Reserve here</h1>
     {{greeting}}
     <form>
     	<p>name <input type="text" id="name" /> </p>
     	<input type="button" id="RSVPyes" value="Yes" />
     	<input type="button" id="RSVPno" value="No" />
     </form>
+  {{else}}
+    <h1>Hello there!  Sign in to reserve!</h1>
   {{/if}}
   <h3>People going: </h3>
   <!-- {{results}} -->
   {{#each allRSVP}}
-    {{#if rule1 name}}
+    <!-- {{#if rule1 name}}
       <p>
         {{name}}
       </p>
@@ -62,10 +65,10 @@
         {{name}}
         {{email}}
       </p>
-    {{/if}}
-    <!-- <p>
+    {{/if}} -->
+    <p>
       {{name}}
       {{email}}
-    </p> -->
+    </p>
   {{/each}}
 </template>
